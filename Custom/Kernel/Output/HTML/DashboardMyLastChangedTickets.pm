@@ -58,9 +58,12 @@ sub Run {
 
     my $SQL = qq~
         SELECT distinct ticket_id
-        FROM ticket_history
-        WHERE change_by = ?
-        ORDER BY change_time DESC
+        FROM (
+            SELECT ticket_id, change_time
+            FROM ticket_history
+            WHERE change_by = ?
+            ORDER BY change_time DESC
+        ) AS my_changed_tickets
     ~;
 
     return if !$DBObject->Prepare(
