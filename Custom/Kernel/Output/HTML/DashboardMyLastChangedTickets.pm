@@ -60,7 +60,7 @@ sub Run {
         SELECT distinct ticket_id
         FROM ticket_history
         WHERE change_by = ?
-        ORDER BY change_date DESC
+        ORDER BY change_time DESC
     ~;
 
     return if !$DBObject->Prepare(
