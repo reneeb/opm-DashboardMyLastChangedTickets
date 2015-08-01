@@ -1,0 +1,16 @@
+{
+    "name": "DashboardMyLastChangedTickets",
+    "version": "4.0.1",
+    "framework": [
+        "4.0.x"
+    ],
+    "vendor": {
+        "name":  "Perl-Services.de",
+        "url": "http://www.perl-services.de"
+    },
+    "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007",
+    "description" : {
+        "en": "Dashboard widgets to get a list of tickets I worked on",
+        "de": "Dashboard mit einer Liste von Tickets an denen ich gearbeitet habe"
+    }
+}
