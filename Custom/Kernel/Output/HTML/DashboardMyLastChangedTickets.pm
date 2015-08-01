@@ -57,16 +57,43 @@ sub Run {
     my $Limit = $ConfigObject->Get( 'DashboardMyLastChangedTickets::Limit' );
 
     my $SQL = qq~
-        SELECT distinct
+        SELECT distinct ticket_id
         FROM ticket_history
-        WHERE 
+        WHERE change_by = ?
+        ORDER BY change_date DESC
     ~;
 
     return if !$DBObject->Prepare(
         SQL   => $SQL,
-        Bind  => [],
+        Bind  => [ \$Self->{UserID} ],
         Limit => $Limit,
     );
+
+    my @TicketIDs;
+    while ( my @Row = $DBObject->FetchrowArray() ) {
+        push @TicketIDs, $Row[0];
+    }
+
+    if ( !@TicketIDs ) {
+        $LayoutObject->Block(
+            Name => 'NoTickets',
+        );
+    }
+    else {
+        for my $TicketID ( @TicketIDs ) {
+            my %Ticket = $TicketObject->TicketGet(
+                TicketID => $TicketID,
+                UserID   => $Self->{UserID},
+            );
+
+            $Ticket{Link} = 'Action=AgentTicketZoom&TicketID=$TicketID';
+
+            $LayoutObject->Block(
+                Name => 'Ticket',
+                Data => \%Ticket,
+            );
+        }
+    }
 
     # render content
     my $Content = $LayoutObject->Output(
