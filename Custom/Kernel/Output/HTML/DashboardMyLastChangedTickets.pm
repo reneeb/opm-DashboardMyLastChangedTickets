@@ -87,7 +87,7 @@ sub Run {
                 UserID   => $Self->{UserID},
             );
 
-            $Ticket{Link} = 'Action=AgentTicketZoom&TicketID=$TicketID';
+            $Ticket{Link} = "Action=AgentTicketZoom&TicketID=$TicketID";
 
             $LayoutObject->Block(
                 Name => 'Ticket',
