@@ -57,13 +57,11 @@ sub Run {
     my $Limit = $ConfigObject->Get( 'DashboardMyLastChangedTickets::Limit' );
 
     my $SQL = qq~
-        SELECT distinct ticket_id
-        FROM (
-            SELECT ticket_id, change_time
-            FROM ticket_history
-            WHERE change_by = ?
-            ORDER BY change_time DESC
-        ) AS my_changed_tickets
+        SELECT ticket_id, MAX(change_time) max_t
+        FROM ticket_history
+        WHERE change_by = 3 
+        GROUP BY ticket_id
+        ORDER BY max_t desc
     ~;
 
     return if !$DBObject->Prepare(
