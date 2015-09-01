@@ -59,7 +59,7 @@ sub Run {
     my $SQL = qq~
         SELECT ticket_id, MAX(change_time) max_t
         FROM ticket_history
-        WHERE change_by = 3 
+        WHERE change_by = ?
         GROUP BY ticket_id
         ORDER BY max_t desc
     ~;
