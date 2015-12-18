@@ -26,13 +26,40 @@ sub new {
         die "Got no $Needed!" if ( !$Self->{$Needed} );
     }
 
+    # check if the user has filter preferences for this widget
+    my %Preferences = $Kernel::OM->Get('Kernel::System::User')->GetPreferences(
+        UserID => $Self->{UserID},
+    );
+
+    $Self->{PrefKeyShown}   = 'UserDashboardPref' . $Self->{Name} . '-Shown';
+    $Self->{PageShown}      = $Preferences{ $Self->{PrefKeyShown} };
+
     return $Self;
 }
 
 sub Preferences {
     my ( $Self, %Param ) = @_;
 
-    return;
+    my @Params = (
+        {
+            Desc  => 'Shown Tickets',
+            Name  => $Self->{PrefKeyShown},
+            Block => 'Option',
+            Data  => {
+                5  => ' 5',
+                10 => '10',
+                15 => '15',
+                20 => '20',
+                25 => '25',
+                30 => '30',
+                35 => '35',
+            },
+            SelectedID  => $Self->{PageShown},
+            Translation => 0,
+        },
+    );
+
+    return @Params;
 }
 
 sub Config {
@@ -50,11 +77,27 @@ sub Run {
     my ( $Self, %Param ) = @_;
 
     my $DBObject     = $Kernel::OM->Get('Kernel::System::DB');
+    my $UserObject   = $Kernel::OM->Get('Kernel::System::User');
     my $TicketObject = $Kernel::OM->Get('Kernel::System::Ticket');
     my $LayoutObject = $Kernel::OM->Get('Kernel::Output::HTML::Layout');
     my $ConfigObject = $Kernel::OM->Get('Kernel::Config');
 
-    my $Limit = $ConfigObject->Get( 'DashboardMyLastChangedTickets::Limit' );
+    my $UseRefresh = $ConfigObject->Get('DashboardMyLastChangedTickets::UseRefresh');
+    if ( $UseRefresh ) {
+        $LayoutObject->Block(
+            Name => 'Refresh',
+            Data => {
+                Name => $Self->{Name},
+            },
+        );
+    }
+
+    my %Preferences = $UserObject->GetPreferences(
+        UserID => $Self->{UserID},
+    );
+
+    my $UserLimit = $Preferences{ $Self->{PrefKeyShown} };
+    my $Limit     = $UserLimit || $ConfigObject->Get( 'DashboardMyLastChangedTickets::Limit' );
 
     my $SQL = qq~
         SELECT ticket_id, MAX(change_time) max_t
