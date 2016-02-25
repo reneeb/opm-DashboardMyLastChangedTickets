@@ -1,13 +1,13 @@
 # --
-# Kernel/Output/HTML/DashboardMyLastChangedTickets.pm
-# Copyright (C) 2015 Perl-Services.de, http://perl-services.de
+# Kernel/Output/HTML/Dashboard/MyLastChangedTickets.pm
+# Copyright (C) 2015 - 2016 Perl-Services.de, http://perl-services.de
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-package Kernel::Output::HTML::DashboardMyLastChangedTickets;
+package Kernel::Output::HTML::Dashboard::MyLastChangedTickets;
 
 use strict;
 use warnings;
