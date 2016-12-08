@@ -12,7 +12,7 @@
     <span style="height: 25px">
         <a href="javascript:void(0);"
            onclick="PS.MyLastChangedTickets.RefreshMylastchangetickets()"
-           id="mylastchangedtickets-refresh">[% Translate("refresh") | html %]</a>
+           id="mylastchangedtickets-refresh">[% Translate("Refresh") | html %]</a>
         <span id="mylastchangedtickets-spinner"></span>
     </span>
 [% RenderBlockEnd("Refresh") %]
@@ -29,7 +29,7 @@
 [% RenderBlockStart("NoTickets") %]
         <tr>
             <td>
-                [% Translate("none") | html %]
+                [% Translate("No tickets found.") | html %]
             </td>
         </tr>
 [% RenderBlockEnd("NoTickets") %]
