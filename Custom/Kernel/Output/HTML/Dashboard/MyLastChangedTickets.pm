@@ -12,6 +12,8 @@ package Kernel::Output::HTML::Dashboard::MyLastChangedTickets;
 use strict;
 use warnings;
 
+use Kernel::Language qw(Translatable);
+
 our $ObjectManagerDisabled = 1;
 
 sub new {
@@ -42,7 +44,7 @@ sub Preferences {
 
     my @Params = (
         {
-            Desc  => 'Shown Tickets',
+            Desc  => Translatable('Shown Tickets'),
             Name  => $Self->{PrefKeyShown},
             Block => 'Option',
             Data  => {
