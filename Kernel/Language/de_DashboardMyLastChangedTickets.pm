@@ -24,13 +24,13 @@ sub Data {
 
     # Custom/Kernel/Output/HTML/Templates/Standard/AgentDashboardMyLastChangedTickets.tt
     $Lang->{'Refresh'} = 'Aktualisieren';
-    $Lang->{'No tickets found.'} = '';
+    $Lang->{'No tickets found.'} = 'Keine Tickets gefunden.';
 
     # Kernel/Config/Files/DasboardMyLastChangedTickets.xml
-    $Lang->{'MyLastChangedTickets dashboard widget.'} = '';
+    $Lang->{'MyLastChangedTickets dashboard widget.'} = 'MyLastChangedTickets Dashboardwidget';
     $Lang->{'My last changed tickets'} = 'Meine zuletzt bearbeiteten Tickets';
-    $Lang->{'Defines the number of tickets shown in the widget.'} = '';
-    $Lang->{'Shows a link to refresh the widget (needs free add-on \'CallDashboardElement\').'} = '';
+    $Lang->{'Defines the number of tickets shown in the widget.'} = 'Definiert die Anzahl der gezeigten Tickets im Widget.';
+    $Lang->{'Shows a link to refresh the widget (needs free add-on \'CallDashboardElement\').'} = 'Zeigt einen Link um das Widget neu zu laden (benötigt das freie Addon \'CallDashboardElement\').';
     $Lang->{'List of JS files to always be loaded for the agent interface.'} =
         'Liste der JavaScript-Dateien, die immer im Agenten-Interface geladen werden sollen.';
 }
