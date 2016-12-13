@@ -2,9 +2,8 @@
 <otrs_package version="1.0">
     <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.36) -->
     <Name>DashboardMyLastChangedTickets</Name>
-    <Version>5.0.2</Version>
+    <Version>5.0.3</Version>
     <Framework>5.0.x</Framework>
-    <PackageRequired Version="5.0.2">CallDashboardElement</PackageRequired>
     <Vendor>Perl-Services.de</Vendor>
     <URL>http://www.perl-services.de</URL>
     <Description Lang="de">Dashboard mit einer Liste von Tickets an denen ich gearbeitet habe.</Description>

@@ -1,17 +1,12 @@
 {
     "name": "DashboardMyLastChangedTickets",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "framework": [
         "5.0.x"
     ],
     "vendor": {
         "name": "Perl-Services.de",
         "url": "http://www.perl-services.de"
-    },
-    "requires":{
-        "package":{
-            "CallDashboardElement" : "5.0.2"
-        }
     },
     "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007",
     "description" : {
