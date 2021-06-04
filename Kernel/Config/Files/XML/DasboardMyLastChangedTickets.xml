@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<otrs_config version="2.0" init="Application">
+<otobo_config version="2.0" init="Application">
     <Setting Name="DashboardBackend###0322-MyLastChangedTickets" Required="0" Valid="1">
         <Description Translatable="1">MyLastChangedTickets dashboard widget.</Description>
         <Navigation>Frontend::Agent::View::Dashboard</Navigation>
@@ -41,4 +41,4 @@
             </Array>
         </Value>
     </Setting>
-</otrs_config>
+</otobo_config>
