@@ -1,12 +1,13 @@
 {
     "name": "DashboardMyLastChangedTickets",
-    "version": "6.0.4",
+    "version": "6.0.5",
     "framework": [
         "6.0.x",
         "6.1.x",
         "6.2.x",
         "6.3.x",
-        "6.4.x"
+        "6.4.x",
+        "6.5.x"
     ],
     "vendor": {
         "name": "Perl-Services.de",
@@ -17,5 +18,8 @@
         "en": "Dashboard widget to get a list of tickets I worked on.",
         "de": "Dashboard mit einer Liste von Tickets an denen ich gearbeitet habe.",
         "hu": "Vezérlőpult felületi elem azon jegyek listájához, amelyekkel dolgozik."
-    }
+    },
+    "exclude_files" : [
+        "doc/DashboardMyLastChangedTickets.json"
+    ]
 }

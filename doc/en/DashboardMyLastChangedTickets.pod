@@ -1,0 +1,5 @@
+=head1 DashboardMyLastChangedTickets
+
+This addon shows a widget with the last tickets the logged in user worked on.
+
+B<This functionality was integrated in Znuny 7>
